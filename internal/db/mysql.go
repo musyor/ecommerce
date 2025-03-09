@@ -4,10 +4,11 @@ import (
 	"database/sql"
 	"ecommerce/internal/config"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type MySQL struct {
-	db *sql.DB
+	DB *sql.DB
 }
 
 func NewMySQL(cfg *config.Config) (*MySQL, error) {
@@ -28,5 +29,5 @@ func NewMySQL(cfg *config.Config) (*MySQL, error) {
 		return nil, err
 	}
 
-	return &MySQL{db: db}, nil
+	return &MySQL{DB: db}, nil
 }
