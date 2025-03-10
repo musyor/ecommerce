@@ -7,8 +7,10 @@ import (
 )
 
 type Redis struct {
-	Client *redis.Client
+	Client *redis.Client // 公开的字段
 }
+
+var RedisInstance *Redis
 
 func NewRedis(cfg *config.Config) *Redis {
 	client := redis.NewClient(&redis.Options{
